@@ -26,7 +26,7 @@ public class EmployeeAttendence {
 	
 	private String duration;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Employee employee;
 
 	public EmployeeAttendence(Date date, String inTime, String outTime, Employee employee) {
