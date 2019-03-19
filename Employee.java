@@ -25,7 +25,7 @@ public class Employee {
 	private Integer code;
 
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="code")
+	@JoinColumn(name = "employee_code")
 	private Set<EmployeeAttendence> attendanceList;
 
 	public Employee(String name, Integer code, Set<EmployeeAttendence> attendanceList) {
