@@ -1,36 +1,32 @@
-package Omniwyse.Read;
+package omniwyse.read;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import Omniwyse.Read.EmployeeAttendence;
-
-
 @Entity
-@Table(name = "employee", schema = "assignment")
+@Table(name = "employee")
 public class Employee {
 
+	
 	private String name;
 
 	@Id
 	private Integer code;
-
-	@OneToMany(cascade=CascadeType.ALL)
+	
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "employee_code")
 	private Set<EmployeeAttendence> attendanceList;
 
 	public Employee(String name, Integer code, Set<EmployeeAttendence> attendanceList) {
 		super();
-		
+
 		this.name = name;
 		this.code = code;
 		this.attendanceList = attendanceList;
@@ -56,15 +52,12 @@ public class Employee {
 		this.code = code;
 	}
 
-	
-	  public Set<EmployeeAttendence> getAttendanceList() { 
-		  return attendanceList;
-	  }
-	  
-	  public void setAttendanceList(Set<EmployeeAttendence> attendanceList) {
-	  this.attendanceList = attendanceList; 
-	  }
-	 
-	
+	public Set<EmployeeAttendence> getAttendanceList() {
+		return attendanceList;
+	}
+
+	public void setAttendanceList(Set<EmployeeAttendence> attendanceList) {
+		this.attendanceList = attendanceList;
+	}
 
 }
