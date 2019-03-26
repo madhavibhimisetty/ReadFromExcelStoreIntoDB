@@ -1,0 +1,33 @@
+CREATE TABLE employee(
+     code INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+     name VARCHAR( 25 ) NOT NULL 
+    
+     );
+
+
+CREATE TABLE `employee_attendance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` varchar(255) DEFAULT NULL,
+  `duration` varchar(255) DEFAULT NULL,
+  `inTime` varchar(255) DEFAULT NULL,
+  `outTime` varchar(255) DEFAULT NULL,
+  `employee_code` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKbqmd0ctqg7rbgjt2x52d8xxht` (`employee_code`),
+  CONSTRAINT `FKbqmd0ctqg7rbgjt2x52d8xxht` FOREIGN KEY (`employee_code`) REFERENCES `employee` (`code`),
+  CONSTRAINT UC_KEY UNIQUE (date,employee_code)
+);
+
+
+
+CREATE TABLE `employee_attendance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime DEFAULT NULL ,
+  `duration` varchar(255) DEFAULT NULL,
+  `inTime` varchar(255) DEFAULT NULL,
+  `outTime` varchar(255) DEFAULT NULL,
+  `employee_code` int(11) DEFAULT NULL ,
+  PRIMARY KEY (`id`),
+  KEY `FKbqmd0ctqg7rbgjt2x52d8xxht` (`employee_code`),
+  CONSTRAINT `FKbqmd0ctqg7rbgjt2x52d8xxht` FOREIGN KEY (`employee_code`) REFERENCES `employee` (`code`)
+); 
