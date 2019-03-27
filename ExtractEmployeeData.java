@@ -59,12 +59,12 @@ public class ExtractEmployeeData {
 								attendence = new EmployeeAttendence();
 								String inTimeStr = inTimeRow.getCell(k1).toString();
 								String outTimeStr = outTimeRow.getCell(k1).toString();
-								String durationStr = durationRow.getCell(k1).toString();
+								//String durationStr = durationRow.getCell(k1).toString();
 								String stringdate = dayRow.getCell(k1).toString();
 								if (null != inTimeStr && !inTimeStr.trim().equals("")) {
 									attendence.setInTime(inTimeStr);
 									attendence.setOutTime(outTimeStr);
-									attendence.setDuration(durationStr);
+								//	attendence.setDuration(durationStr);
 									
 									DateFormat dateFormat= new SimpleDateFormat("dd-MMM-yyyy");
 									Date date1 = (Date)dateFormat.parse(stringdate+"-"+Calendar.getInstance().get(Calendar.YEAR));
@@ -79,7 +79,7 @@ public class ExtractEmployeeData {
 									//Date date = dateFormat.parse(format);
 									//Date date = dateFormat.parse(stringdate);
 								   
-									attendence.setDate(formatedDate);
+									attendence.setDate(date1);
 									attendencelist.add(attendence);
 								}
 							}
